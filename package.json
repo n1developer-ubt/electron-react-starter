@@ -1,0 +1,99 @@
+{
+   "name": "project-name",
+   "version": "1.0.0",
+   "main": "backend/electron-main.js",
+   "license": "MIT",
+   "private": true,
+   "dependencies": {
+      "electron-fetch": "^1.9.1"
+   },
+   "scripts": {
+      "buildpack": "cd client && yarn build && cd .. && yarn package",
+      "electron": "electron .",
+      "electron-dev": "ELECTRON_START_URL=http://127.0.0.1:5173/ nodemon --watch . --exec electron .",
+      "electron-dev-win": "set ELECTRON_START_URL=http://localhost:3000 && electron .",
+      "package": "electron-builder"
+   },
+   "author": "n1developer",
+   "email": "admin@qg.ch",
+   "description": "New Project",
+   "build": {
+      "productName": "Project Name",
+      "appId": "com.project-name.qg",
+      "protocols": {
+         "name": "Project Name",
+         "schemes": [
+            "qgen"
+         ]
+      },
+      "mac": {
+         "category": "cat",
+         "target": {
+            "target": "dmg",
+            "arch": [
+               "x64"
+            ]
+         },
+         "icon": "client/dist/icon_512.png"
+      },
+      "linux": {
+         "target": {
+            "target": "deb",
+            "arch": [
+               "x64"
+            ]
+         },
+         "icon": "client/dist/icon_512.png"
+      },
+      "files": [
+         "client/dist/**/*",
+         "backend/**/*"
+      ],
+      "directories": {
+         "output": "release",
+         "buildResources": "dist"
+      },
+      "asar": false,
+      "win": {
+         "icon": "client/dist/icon.png",
+         "target": [
+            "nsis"
+         ]
+      },
+      "nsis": {
+         "runAfterFinish": true,
+         "oneClick": false,
+         "allowToChangeInstallationDirectory": true,
+         "installerIcon": "client/dist/icon_512.ico",
+         "uninstallerIcon": "client/dist/icon_512.ico",
+         "installerHeaderIcon": "client/dist/icon_512.ico",
+         "createDesktopShortcut": true,
+         "createStartMenuShortcut": true,
+         "shortcutName": "Project Name"
+      }
+   },
+   "devDependencies": {
+      "electron": "^19.0.4",
+      "electron-builder": "^23.1.0",
+      "electron-packager": "^15.5.1",
+      "electron-rebuild": "^3.2.7",
+      "eslint": "^8.30.0"
+   },
+   "browser": {
+      "fs": false,
+      "path": false,
+      "os": false
+   },
+   "browserslist": {
+      "production": [
+         ">0.2%",
+         "not dead",
+         "not op_mini all"
+      ],
+      "development": [
+         "last 1 chrome version",
+         "last 1 firefox version",
+         "last 1 safari version"
+      ]
+   }
+}
