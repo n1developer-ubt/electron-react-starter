@@ -85,14 +85,8 @@ function createWindow() {
       shell.openExternal(url)
    })
 
-   mainWindow.once("ready-to-show", () => {
-      // mainWindow.show()
-   })
-
    mainWindow.webContents.once("dom-ready", async () => {
       mainWindow.show()
-      // await print()
-      // mainWindow.close()
    })
 }
 

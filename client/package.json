@@ -1,5 +1,5 @@
 {
-   "name": "newclient",
+   "name": "client",
    "version": "0.1.0",
    "private": true,
    "dependencies": {
@@ -17,9 +17,6 @@
       "web-vitals": "^2.1.0",
       "@ant-design/icons": "^5.0.1",
       "antd": "^5.4.6",
-      "file-saver": "^2.0.5",
-      "react-drag-listview": "^2.0.0",
-      "react-papaparse": "^4.1.0",
       "react-router-dom": "^6.10.0"
    },
    "scripts": {
